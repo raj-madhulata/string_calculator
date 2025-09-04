@@ -34,4 +34,10 @@ class CalculatorTest < ActiveSupport::TestCase
     assert_equal 3, Calculator.add("1,2,sdfs")
     assert_equal 8, Calculator.add("1,twddo,3,4")
   end
+
+  test "negatives not allowed" do
+    assert_equal 3, Calculator.add("1,2,-3")
+    assert_equal 8, Calculator.add("1,-2,3,4")
+  end
+    
 end
