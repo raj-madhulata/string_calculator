@@ -36,8 +36,14 @@ class CalculatorTest < ActiveSupport::TestCase
   end
 
   test "negatives not allowed" do
-    assert_equal 3, Calculator.add("1,2,-3")
-    assert_equal 8, Calculator.add("1,-2,3,4")
+    error1 = assert_raises(RuntimeError) { Calculator.add("1,2,-3") }
+    assert_match /negative numbers not allowed: -3/, error1.message
+              
+    error2 = assert_raises(RuntimeError) { Calculator.add("1,-2,3,4") }
+    assert_match /negative numbers not allowed: -2/, error2.message
+    
+    error3 = assert_raises(RuntimeError) { Calculator.add("1,-2,3,-4") }
+    assert_match /negative numbers not allowed: -2,-4/, error3.message
   end
     
 end
