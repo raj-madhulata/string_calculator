@@ -19,4 +19,9 @@ class CalculatorTest < ActiveSupport::TestCase
     assert_equal 6, Calculator.add("1,2,3")
     assert_equal 10, Calculator.add("1,2,3,4")
   end
+
+  test "handles new lines between numbers" do
+    assert_equal 6, Calculator.add("1\n2,3")
+    assert_equal 10, Calculator.add("1,2\n3,4")
+  end
 end
