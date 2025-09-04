@@ -31,7 +31,7 @@ class CalculatorTest < ActiveSupport::TestCase
   end
 
   test "ignores non-numeric values" do
-    assert_equal 6, Calculator.add("1,2,three")
-    assert_equal 10, Calculator.add("1,two,3,4")
+    assert_equal 3, Calculator.add("1,2,sdfs")
+    assert_equal 8, Calculator.add("1,twddo,3,4")
   end
 end
