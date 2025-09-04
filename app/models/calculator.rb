@@ -1,5 +1,8 @@
 class Calculator < ApplicationRecord
   def self.add(string)
-    0
+    return 0 if string.empty?
+
+    numbers = string.split(",").map(&:to_i)
+    numbers.sum
   end
 end
