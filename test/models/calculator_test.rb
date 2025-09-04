@@ -9,4 +9,9 @@ class CalculatorTest < ActiveSupport::TestCase
     assert_equal 1, Calculator.add("1")
     assert_equal 2, Calculator.add("2")
   end
+
+  test "two numbers separated by comma return the sum" do
+    assert_equal 3, Calculator.add("1,2")
+    assert_equal 5, Calculator.add("2,3")
+  end
 end
