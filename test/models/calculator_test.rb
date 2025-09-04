@@ -24,4 +24,9 @@ class CalculatorTest < ActiveSupport::TestCase
     assert_equal 6, Calculator.add("1\n2,3")
     assert_equal 10, Calculator.add("1,2\n3,4")
   end
+
+  test "handles both commas and new lines as delimiters" do
+    assert_equal 10, Calculator.add("1\n2,3\n4")
+    assert_equal 15, Calculator.add("1,2\n3,4\n5")
+  end
 end
