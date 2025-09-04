@@ -29,4 +29,9 @@ class CalculatorTest < ActiveSupport::TestCase
     assert_equal 10, Calculator.add("1\n2,3\n4")
     assert_equal 15, Calculator.add("1,2\n3,4\n5")
   end
+
+  test "ignores non-numeric values" do
+    assert_equal 6, Calculator.add("1,2,three")
+    assert_equal 10, Calculator.add("1,two,3,4")
+  end
 end
